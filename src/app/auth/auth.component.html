@@ -1,0 +1,81 @@
+<section class="auth">
+    <div class="authDiv">
+
+        <div class="panel">
+            <button (click)="loginScreen=!loginScreen" [ngClass]="loginScreen ? '' : 'selection'" class="tab registerTab ">Register</button>
+            <button class="tab loginTab" (click)="loginScreen=!loginScreen" [ngClass]="loginScreen ? 'selection' : ''">Login</button>
+            <div class="showRegister" *ngIf="!loginScreen">
+                <span class="title">Get on Board</span>
+                <form #regform="ngForm">
+                    <div class="form-group">
+                        <input type="text" class="form-control name" name="name" #name="ngModel" placeholder="Name" required [(ngModel)]="formUser.Name">
+                        <div *ngIf="name.invalid && (name.dirty || name.touched)">
+                            <span *ngIf="name.errors.required" class="help-block form-errors">Name is required</span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" (focusout)="checkUniqueEmail()" name=" regEmail " #regEmail="ngModel" class="form-control email " placeholder="Email " required [(ngModel)]="formUser.Email ">
+                        <div *ngIf="regEmail.invalid && (regEmail.dirty || regEmail.touched) ">
+                            <span *ngIf="regEmail.errors.required " class="help-block form-errors ">Email is required</span>
+                        </div>
+                        <span *ngIf="isEmailTaken " class="help-block form-errors ">Email already taken</span>
+                    </div>
+                    <div class="form-group ">
+                        <input type="password" name="regPassword " #regPassword="ngModel" class="form-control email " placeholder="Password " required minlength="8 " [(ngModel)]="formUser.Password ">
+                        <div *ngIf="regPassword.invalid && (regPassword.dirty || regPassword.touched) ">
+                            <span *ngIf="regPassword.errors.required " class="help-block form-errors ">Password is required</span>
+                            <span *ngIf="regPassword.errors.minlength " class="help-block form-errors ">Must be atleast 8 characters</span>
+                        </div>
+                    </div>
+                    <div class="form-group ">
+                        <input type="password" name="confirmPassword " #confirmPassword="ngModel" appValidateEqual="regPassword " [(ngModel)]="formUser.Confirm " class="form-control email " required placeholder="Confirm Password ">
+                        <div *ngIf="confirmPassword.invalid && (confirmPassword.dirty || confirmPassword.touched) ">
+                            <span *ngIf="confirmPassword.errors.required " class="help-block form-errors ">Confirm email is required</span>
+                            <span *ngIf="confirmPassword.errors.notEqual " class="help-block form-errors ">Password mismatch</span>
+                        </div>
+                    </div>
+                    <div *ngIf="formHasError ">
+                        <span *ngIf="loginPassword.errors.required " class="help-block form-errors ">Snap! Something went wrong</span>
+                    </div>
+                    <div class="form-group signUpBtn ">
+                        <button [disabled]="!regform.valid " class="registerBtn mybtn" (click)="register() ">Sign Up</button>
+                        <button class="cancelBtn mybtn " type="reset">Cancel</button>
+                    </div>
+                </form>
+
+            </div>
+
+            <div class="showLogin " *ngIf="loginScreen ">
+                <span class="title ">Hello there, welcome back</span>
+                <form #loginform="ngForm">
+                    <div class="form-group ">
+                        <input type="text " name="loginEmail " #loginEmail="ngModel" required [(ngModel)]="email " class="form-control email " placeholder="Email ">
+                        <div *ngIf="loginEmail.invalid && (loginEmail.dirty || loginEmail.touched) ">
+                            <span *ngIf="loginEmail.errors.required " class="help-block form-errors ">Email is required</span>
+                        </div>
+                    </div>
+                    <div class="form-group ">
+                        <input type="password" #loginPassword="ngModel" name="loginPassword" required [(ngModel)]="password " class="form-control email " placeholder="Password ">
+                        <div *ngIf="loginPassword.invalid && (loginPassword.dirty || loginPassword.touched) ">
+                            <span *ngIf="loginPassword.errors.required " class="help-block form-errors ">Password is required</span>
+                        </div>
+                    </div>
+                    <div *ngIf="formHasError ">
+                        <span *ngIf="loginPassword.errors.required " class="help-block form-errors ">Incorrect Email/Password, try again</span>
+                    </div>
+                    <div class="form-group signInBtn ">
+                        <button [disabled]="!loginform.valid " class="loginBtn mybtn " (click)="login() ">Sign In</button>
+                        <button class="cancelBtn mybtn " type="reset">Cancel</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <!-- <div class="panel register "></div> -->
+
+
+    </div>
+    <!-- <div class="panel login ">
+
+        </div> -->
+
+</section>

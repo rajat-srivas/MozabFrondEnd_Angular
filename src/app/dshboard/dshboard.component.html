@@ -1,0 +1,17 @@
+<section>
+
+    <!-- <div class="dashboard">
+        <template #messagecontainer>
+        </template>
+        <app-add-card class="card card-add" (click)="createComponent()"></app-add-card>
+    </div> -->
+    <div class="dashboard">
+        <app-card class="mycard" *ngFor="let item of boardService.boards" boardId="{{item.Id}}"></app-card>
+        <template #messagecontainer>
+        </template>
+        <app-add-card class="mycard card-add" (click)="createComponent()"></app-add-card>
+    </div>
+
+    <button class="publish" (click)="SaveChanges()"><span>Save Changes</span></button>
+
+</section>

@@ -1,0 +1,150 @@
+.myNav {
+    width: 100%;
+    min-height: 60px;
+    height: 60px;
+    background-color: #000000;
+}
+
+.mainnav {
+    height: inherit;
+    display: flex;
+    align-items: center;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    justify-content: space-between;
+    position: relative;
+}
+
+.navlist {
+    list-style: none;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    width: 28%;
+    margin-bottom: 0;
+}
+
+.navitem {
+    width: 120px;
+    text-align: center;
+}
+
+.navlist a:hover {
+    border-bottom: 3px solid #ffac41;
+}
+
+img {
+    width: 20px;
+    height: 20px;
+}
+
+.navitem a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    font-size: 1rem;
+    text-align: center;
+    padding: 5px;
+}
+
+.logo {
+    color: white;
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: 2px;
+    font-size: 1.3rem;
+    border: 3px solid #ffac41;
+    padding: 3px 10px;
+    margin-bottom: 0;
+}
+
+.burgerDiv {
+    display: none;
+}
+
+.logo:hover {
+    cursor: pointer;
+}
+
+.navitem:hover {
+    cursor: pointer;
+}
+
+@media (max-width:500px) {
+    .navlist {
+        flex-direction: column;
+    }
+    .burgerDiv {
+        display: inline-block;
+        width: 5rem;
+        height: 3rem;
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        margin-right: -35px;
+    }
+    .burger {
+        position: absolute;
+        /* display: inline-block; */
+        width: 40px;
+        height: 3px;
+        background: white;
+        right: 30px;
+        transition: background-color .5s;
+    }
+    .burger::before,
+    .burger::after {
+        content: '';
+        width: inherit;
+        height: inherit;
+        background: white;
+        transition: all .5s;
+        top: -8%;
+        position: absolute;
+    }
+    .burger::before {
+        top: -.8rem;
+    }
+    .burger::after {
+        top: .8rem;
+    }
+    .open .burger {
+        background-color: transparent;
+    }
+    .open .burger::before {
+        top: 0;
+        transform: rotate(135deg);
+    }
+    .open .burger::after {
+        top: 0;
+        transform: rotate(-135deg);
+    }
+    .navlist {
+        width: 100%;
+        height: 20vh;
+        position: absolute;
+        top: 85%;
+        right: 0;
+        background-color: #000;
+        transform: translateX(55rem);
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        justify-content: space-around;
+        box-shadow: -.5rem 0 1rem rgba(0, 0, 0, .1);
+        z-index: 1500;
+        transition: transform .5s;
+    }
+    .open .navlist {
+        transform: translateX(0);
+    }
+    .navlist li:hover {
+        border: none;
+    }
+    .burgerDiv:hover {
+        cursor: pointer;
+    }
+    .burgerDiv {}
+}

@@ -1,0 +1,19 @@
+<div class="mycard">
+    <div class="card-content">
+        <!-- <p class="cardTitle">CardName</p> -->
+        <input type="text" placeholder="Board Title" class="cardTitle" [(ngModel)]="board.BoardTitle">
+        <!-- <div class="input-div" *ngFor="let control of skills.controls; index as i">
+            <input class="input-item" type="text" [style.backgroundColor]=" getColor(i)" [formControl]="skills.controls[i]" >
+            <a><i class="fa fa-times" aria-hidden="true"></i></a>
+        </div> -->
+        <div class="input-div" *ngFor="let control of board.BoardItems; index as i">
+            <input class="input-item" type="text" [style.backgroundColor]=" getColor(i)" [(ngModel)]="control.Item">
+            <a (click)="deleteBoardItem(control.Id)"><i class="fa fa-times" aria-hidden="true"></i></a>
+        </div>
+
+        <div class="icons">
+            <i class="fa fa-plus-square add " (click)="addNewItem()" aria-hidden="true"></i>
+            <i class="fa fa-trash delete" (click)="deleteBoard()" aria-hidden="true"></i>
+        </div>
+    </div>
+</div>

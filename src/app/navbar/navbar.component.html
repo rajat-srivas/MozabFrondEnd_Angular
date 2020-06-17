@@ -1,0 +1,12 @@
+<div class="myNav">
+    <div class="mainnav" [ngClass]="isResponsive ? 'open' : ''">
+        <p class="logo"><img src="../../assets/thunder.png" [routerLink]="['']" class="thunder" alt="">MozaB</p>
+        <div class="burgerDiv" (click)="toggleResponsive()">
+            <span class="burger"></span>
+        </div>
+        <ul class="navlist">
+            <li class="navitem"><img src="../../assets/user.png" class="user" alt=""><a [routerLink]="['/dashboard']" class="navanchor">{{authService.navbarName}}</a></li>
+            <li *ngIf="authService.loggedIn()" class="navitem"><img src="../../assets/key.png" class="user" alt=""><a (click)="logout()" class="navanchor">Logout</a></li>
+        </ul>
+    </div>
+</div>

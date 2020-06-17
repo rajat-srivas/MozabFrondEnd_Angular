@@ -1,0 +1,57 @@
+.confirmation {
+    border-radius: 2px;
+    padding: 20px;
+    background-color: black;
+    height: auto;
+    width: auto;
+    height: auto;
+    color: white;
+    box-shadow: 1px white;
+}
+
+.heading {
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    font-weight: 600;
+    color: #f2a51a;
+}
+
+.desc {
+    font-size: 1.3rem;
+}
+
+.confirmBtn {
+    margin-top: 40px;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+button {
+    padding: 10px;
+    width: 100px;
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+button:focus {
+    outline: none;
+}
+
+.yes {
+    background-color: #eb4559;
+}
+
+.yes:hover {
+    background-color: #d63447;
+}
+
+.no {
+    background-color: #413c69;
+}
+
+.no:hover {
+    background-color: #400082;
+}
