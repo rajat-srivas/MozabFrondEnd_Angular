@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  baseUrl: 'http://mozabapi.somee.com/api'
+  baseUrl: 'https://mozabapi.somee.com/api'
 };
 
 /*
